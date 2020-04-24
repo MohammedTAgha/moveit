@@ -1,0 +1,268 @@
+ 
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Baloo Paaji 2', cursive;
+}
+.bg-div {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -1;
+  background: linear-gradient(
+    331.58deg,
+    rgba(48, 5, 5, 0.871) -34.61%,
+    #230b3f 13.86%,
+    #202f3b 62.45%,
+    #202f3b 96%
+  );
+}
+.nav-bar {
+  height: 8vh;
+  width: 100vw;
+  background: transparent;
+}
+.page {
+  height: 100%;
+  position: relative;
+}
+.page .side-bar {
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+  
+
+  width: 15.5vw;
+  background: rgba(255, 255, 255, 0);
+  float: left;
+}
+.page .side-bar ul{
+  margin-top: 35px;
+  margin-left: 30px;
+  list-style-type: none;
+  color: rgb(250, 250, 250);
+  font-size: 24px;
+  font-weight: 400;
+
+}
+.page .side-bar ul li{
+  margin: 8px 0px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+}
+.page .side-bar ul li:hover{
+ color: #ff4d2c;
+}
+.content {
+  position: absolute;
+  height: 92vh;
+  width: 84.2vw;
+  float: right;
+  right: 0;
+  top: 0;
+  /* padding-top: 65px;
+    padding-left: 50px; */
+  border-top-left-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.568);
+  
+  overflow: scroll;
+}
+
+/* width */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.466); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ff4d2c;
+}
+.film-holder {
+  margin-top: 65px;
+  margin-left: 10px;
+  margin-right: 50px;
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: space-between;
+}
+.film {
+  position: relative;
+  height: 277.69px;
+  width: 190px;
+  background-color: rgb(119, 119, 119);
+  margin-left: 20px;
+  margin-bottom: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+.film img {
+  width: 100%;
+  height: 100%;
+  
+}
+
+.film .overlay {
+   position: absolute;
+  height: 100%;
+  width: 100%;
+  /* display: none; */
+  font-family: 'Baloo Paaji 2', cursive;
+
+
+
+
+  opacity: 0;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  cursor: pointer;
+ 
+    /* Note: currently only Safari supports backdrop-filter */
+    backdrop-filter: blur(1px);
+    --webkit-backdrop-filter: blur(1px);
+    background-color: 
+    linear-gradient(0deg, rgba(255, 255, 255, 0.5544) 3.55%, rgba(255, 255, 255, 0.3024) 40.05%, rgba(255, 255, 255, 0.1512) 58.53%);
+    transition: all 0.15s ease ;
+    /* transition: opacity 0.3s ease ; */
+    
+}
+
+.film:hover  .overlay {
+    display: block;
+    height:60%;
+    opacity: 1;
+    width: 100%;
+
+    backdrop-filter: blur(3.5px);
+    --webkit-backdrop-filter: blur(3.5px);
+}
+
+/* .overlay:hover {
+    display: block;
+    height:50%;
+    opacity: 0.8;
+    width: 100%;
+    backdrop-filter: blur(5.5px);
+    --webkit-backdrop-filter: blur(5.5px);
+} */
+
+.film-name{
+  font-size: 22px;
+  margin:2px 5px;
+  text-align: center;
+  margin-top: 4px;
+  text-transform: uppercase;
+  line-height: 24px;
+  margin-bottom: 0px;
+
+}
+.overlay hr{
+  width: 70%;
+  margin: 0 auto;
+  margin-top: -1px;
+  background: #c4c4c400;
+}
+.overlay .film-rate{
+  
+  margin: 0 auto;
+  text-align: center;
+  
+}
+.overlay .film-rate span p{
+  height: 25px;
+}
+.overlay .film-rate span sub img{
+  height: 25px;
+  width: 40px;
+  transform: translate(0px,4px);
+   
+}
+.overlay  .coliction{
+  display: flex;
+  justify-content: center;
+  
+}
+.overlay .film-rate .coliction p,.overlay .coliction p{
+  margin-right: 8px;
+  margin-bottom: 4px;
+  background-color: rgba(184, 184, 184, 0.596);
+  color: rgb(36, 36, 36);
+  border-radius: 4px;
+  padding: 0px 5px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.overlay .coliction p{
+  margin-top: 4px;
+  color: azure;
+  background-color: rgb(36, 36, 36);
+  font-weight: 400;
+}
+ /* -------------------------------------------------------------------------- */
+/* 
+
+ .cont {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+}
+
+.image {
+    display: block;
+    width: 200px;
+    height: 200px;
+}
+
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: sans-serif;
+}
+.overlay {
+    position: absolute;
+    opacity: 0;
+    transition:all .3s ease;
+    background-color: #008cba;
+}
+overlayBottom{
+    width: 100%;
+    height: 0;
+    bottom:0;
+    left:0;
+    background-color: #941e33;
+}
+.cont:hover .overlayTop ,.cont:hover .overlayBottom {
+    height: 100%;
+} */
+.nxt-pg{
+  background-color: rgb(236, 10, 10);
+  z-index: 555;
+}
+
+
