@@ -15,11 +15,85 @@ import './App.css';
 
 
 class app extends Component{
+  
   state = {
-    movies:{}
+    movies:[],
+    search:'fast',
+    loading:false
+
+
+  }
+ 
+  // async componentDidMount(){
+    
+  //   const data= await searchData(this.state.search);
+  //   console.log(data.data.results)
+    
+  //   const moviesData=data.data.results
+  //   this.setState({
+  //     movies:moviesData
+  //   })
+  //   //console.log(this.state)
+  // }
+  search = async s => {
+    this.setState({ loading: true });
+    const data= await searchData(s);
+    this.setState({movies:data.data.results});
+
+    console.log(data.data.results)
+    console.log(`🏁🏁 ${this.state.movies} `)
+  }
+  
+  onChangeHandler = async e => {
+    this.search(e.target.value);
+    this.setState({ search: e.target.value });
+  };
+
+  get renderMovies() {
+    let movies = <h1>There's no movies</h1>;
+    if (this.state.movies) {
+      movies = <Container filmData={this.state.movies} />;
+    }
+
+    return movies;
   }
 
-
+  render(){
+  //   const updateSearch=(e)=>{
+  //     this.setState(e.target.value);
+  //    console.log(`▶ ${SearchInput} `)
+     
+  //  }
+    let movies=this.state.movies
+    console.log('*******')
+    console.log(movies)
+    let SearchInput=''
+    // const search=()=>{
+    //   this.setState({
+    //     search:SearchInput
+    //   })
+    // }
+    
+    
+    return(
+      <div>
+        <input
+          value={this.state.search}
+          onChange={e => this.onChangeHandler(e)}
+          placeholder="Type something to search"
+        />
+        {/* {
+          this.renderMovies
+        } */}
+          <Container filmData={this.state.movies} />
+          {
+          console.log(`≫ ${this.state.movies} `)
+          
+          }
+          
+      </div>
+    )
+  }
 
 
 

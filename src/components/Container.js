@@ -22,7 +22,6 @@ const Container = (props) => {
     <div className="page">
         <div className="side-bar"> 
             <ul>
-                                
                 <li>All movies</li>
                 <li>Top rated</li>
                 <li>Top veiws</li>
@@ -44,9 +43,11 @@ const Container = (props) => {
             {/*-------------------------  */}
             <Route path="/">
             {
+                
                 props.filmData.map((film)=>(
                     <Film movie={film}/>
                 ))
+                
             }
             </Route>
              
