@@ -20,7 +20,7 @@ const Container = (props) => {
         </div>
     </div>
     <div className="page">
-        <div className="side-bar"> 
+        {/* <div className="side-bar"> 
             <ul>
                 <li>All movies</li>
                 <li>Top rated</li>
@@ -36,7 +36,7 @@ const Container = (props) => {
                 <li>Newest</li>
             </ul>
 
-        </div>
+        </div> */}
         <div className="content">
         <div className="film-holder">
 

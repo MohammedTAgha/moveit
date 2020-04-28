@@ -8,12 +8,6 @@ import TopNav from './components/TopNav'
 
 import './App.css';
 
-
-
-
-
-
-
 class app extends Component{
   
   state = {
@@ -95,16 +89,18 @@ class app extends Component{
     return(
       <div>
          
-          <input
+          {/* <input
             value={this.state.txt}
             onChange={e => this.onChangeHandler(e)}
             placeholder="Type something to search"
           />
-          <button onClick={go}>searsh</button>
+          <button onClick={go}>searsh</button> */}
          
         {/* {
           this.renderMovies
         } */}
+           
+          <SideNav />
           <Container filmData={this.state.movies} />
           {
          // console.log(`≫ ${this.state.movies} `)
@@ -114,19 +110,10 @@ class app extends Component{
       </div>
     )
   }
-
-
-
-
-
-
 }
 export default app
 
 // class  App extends  {
-
-
-
 
 //   //https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher
 //   const myKey = "cd747fb3aa0887ceb7731136b85ec09f"

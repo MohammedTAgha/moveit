@@ -32,7 +32,7 @@ body {
   height: 100%;
   position: relative;
 }
-.page .side-bar {
+ .side-bar {
   height: 92vh;
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@ body {
   background: rgba(255, 255, 255, 0);
   float: left;
 }
-.page .side-bar ul{
+ .side-bar ul{
   margin-top: 35px;
   margin-left: 30px;
   list-style-type: none;
@@ -51,13 +51,13 @@ body {
   font-weight: 400;
 
 }
-.page .side-bar ul li{
+ .side-bar ul li{
   margin: 8px 0px;
   cursor: pointer;
   transition: all 0.2s ease;
 
 }
-.page .side-bar ul li:hover{
+.side-bar ul li:hover{
  color: #ff4d2c;
 }
 .content {
