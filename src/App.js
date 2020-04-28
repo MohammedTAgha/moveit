@@ -19,8 +19,9 @@ class app extends Component{
   state = {
     movies:[],
     search:'fast',
-    loading:false
-
+    loading:false,
+    txt:'',
+    msg:''
 
   }
  
@@ -36,6 +37,7 @@ class app extends Component{
   //   //console.log(this.state)
   // }
   search = async s => {
+
     this.setState({ loading: true });
     const data= await searchData(s);
     this.setState({movies:data.data.results});
@@ -43,30 +45,45 @@ class app extends Component{
     console.log(data.data.results)
     console.log(`🏁🏁 ${this.state.movies} `)
   }
-  
+   //txt=''
+  // e.preventDefolt()
   onChangeHandler = async e => {
-    this.search(e.target.value);
-    this.setState({ search: e.target.value });
+    e.preventDefault()
+    
+    //txt=e.target.value
+    this.setState({ txt: e.target.value });
+    console.log(this.state.txt)
   };
+
+  
 
   get renderMovies() {
     let movies = <h1>There's no movies</h1>;
     if (this.state.movies) {
-      movies = <Container filmData={this.state.movies} />;
+      movies = <Container filmData={this.state.movies} masage={this.state.msg}  />;
     }
 
     return movies;
   }
+  doSearch(){
+
+  }
 
   render(){
+    const go= ()=>{
+      this.search(this.state.txt);
+      if (this.state.txt){
+      
+      }
+    }
   //   const updateSearch=(e)=>{
   //     this.setState(e.target.value);
   //    console.log(`▶ ${SearchInput} `)
      
   //  }
     let movies=this.state.movies
-    console.log('*******')
-    console.log(movies)
+    // console.log('*******')
+    // console.log(movies)
     let SearchInput=''
     // const search=()=>{
     //   this.setState({
@@ -77,17 +94,20 @@ class app extends Component{
     
     return(
       <div>
-        <input
-          value={this.state.search}
-          onChange={e => this.onChangeHandler(e)}
-          placeholder="Type something to search"
-        />
+         
+          <input
+            value={this.state.txt}
+            onChange={e => this.onChangeHandler(e)}
+            placeholder="Type something to search"
+          />
+          <button onClick={go}>searsh</button>
+         
         {/* {
           this.renderMovies
         } */}
           <Container filmData={this.state.movies} />
           {
-          console.log(`≫ ${this.state.movies} `)
+         // console.log(`≫ ${this.state.movies} `)
           
           }
           
