@@ -7,8 +7,12 @@ import logo from './logoo.svg';
 import '../App.css';
 
 const Container = (props) => {
-    // console.log('*****')
-    // console.log(props.filmData)
+     console.log('*****')
+     console.log(props)
+     
+    const renderFilm = ( ) => {
+        
+    }
     return ( 
     <Router>
     <div>
@@ -20,7 +24,7 @@ const Container = (props) => {
         </div>
     </div>
     <div className="page">
-        {/* <div className="side-bar"> 
+        <div className="side-bar"> 
             <ul>
                 <li>All movies</li>
                 <li>Top rated</li>
@@ -36,18 +40,17 @@ const Container = (props) => {
                 <li>Newest</li>
             </ul>
 
-        </div> */}
+        </div>
         <div className="content">
         <div className="film-holder">
 
             {/*-------------------------  */}
             <Route path="/">
+             
             {
+                props.filmData.map((film)=>(<Film movie={film}/>))
                 
-                props.filmData.map((film)=>(
-                    <Film movie={film}/>
-                ))
-                
+                 
             }
             </Route>
              

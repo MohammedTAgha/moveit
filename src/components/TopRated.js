@@ -11,6 +11,7 @@ const Film = (props) => {
     const thumImg = "https://image.tmdb.org/t/p/w500/"
         // console.log('films')
         // console.log(films)
+    console.log('🧾🧾'+ JSON.stringify(props.movie.genre_ids))
     return ( 
         //  <div></div>
         

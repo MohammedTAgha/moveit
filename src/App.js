@@ -1,179 +1,215 @@
-import React,{useEffect , useState, Component} from 'react'
-import {searchData} from './API'
-import Container from './components/Container'
-import Player from './components/Player'
-  
-import SideNav from './components/SideNav'
-import TopNav from './components/TopNav'
+import React, { useEffect, useState, Component } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Route, Switch, NavLink, Link } from "react-router-dom";
+import { searchData } from "./API";
+import { topRated } from "./API";
+import { popular } from "./API";
+import Container from "./components/Container";
+import Player from "./components/Player";
 
-import './App.css';
+import SideNav from "./components/SideNav";
+import TopNav from "./components/TopNav";
 
-class app extends Component{
-  
-  state = {
-    movies:[],
-    search:'fast',
-    loading:false,
-    txt:'',
-    msg:''
+const App = () => {
+  //https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher
+  const myKey = "cd747fb3aa0887ceb7731136b85ec09f";
 
-  }
- 
-  // async componentDidMount(){
-    
-  //   const data= await searchData(this.state.search);
-  //   console.log(data.data.results)
-    
-  //   const moviesData=data.data.results
-  //   this.setState({
-  //     movies:moviesData
-  //   })
-  //   //console.log(this.state)
-  // }
-  search = async s => {
+  // https://api.themoviedb.org/3/movie/top_rated?api_key=cd747fb3aa0887ceb7731136b85ec09f&language=en-US&page=1
 
-    this.setState({ loading: true });
-    const data= await searchData(s);
-    this.setState({movies:data.data.results});
+  const [moveis, SetMoveis] = useState([]);   // 🎬 movie state  
+  const [searchInput, SetSearchInput] = useState("");  // 🔍 search input state
 
-    console.log(data.data.results)
-    console.log(`🏁🏁 ${this.state.movies} `)
-  }
-   //txt=''
-  // e.preventDefolt()
-  onChangeHandler = async e => {
-    e.preventDefault()
-    
-    //txt=e.target.value
-    this.setState({ txt: e.target.value });
-    console.log(this.state.txt)
+  useEffect(() => {
+    getRequist();
+  }, []);
+  const getRequist = async s => {
+    if (searchInput != "") {
+      const data = await searchData(searchInput);
+      console.log("🔍" + searchInput);
+      console.log("🏁🏁🏁🏁");
+      console.log(data);
+      SetMoveis(data.data.results);
+      console.log("no search");
+    }
   };
 
-  
+  const getTopRated = async () => {   //page in parametars  🏁🏁 git and sit top rated movies
+    const data = await topRated(1);
+    console.log(data.data);
+    SetMoveis(data.data.results)
+    return data;
+  };
 
-  get renderMovies() {
-    let movies = <h1>There's no movies</h1>;
-    if (this.state.movies) {
-      movies = <Container filmData={this.state.movies} masage={this.state.msg}  />;
-    }
+  const getPopular = async () => {   //page in parametars  🏁🏁 git and sit top rated movies
+    const data = await popular(1);
+    console.log(data.data);
+    SetMoveis(data.data.results)
+    return data;
+  };
+  const updateSearch = e => {
+    SetSearchInput(e.target.value);
+  };
+  // const grtSearch=()=>{
 
-    return movies;
-  }
-  doSearch(){
-
-  }
-
-  render(){
-    const go= ()=>{
-      this.search(this.state.txt);
-      if (this.state.txt){
+  // }
+  const search = () => {
+    console.log("🟢🟢" + searchInput);
+    getRequist(searchInput);
+  };
+  return (
+    <div>
+      <input type="text" value={searchInput} onChange={updateSearch}></input>
+      <button onClick={search}>test</button>
+      <button onClick={getTopRated}>test2</button>
+      <button onClick={getPopular}>test3</button>
       
-      }
-    }
-  //   const updateSearch=(e)=>{
-  //     this.setState(e.target.value);
-  //    console.log(`▶ ${SearchInput} `)
-     
-  //  }
-    let movies=this.state.movies
-    // console.log('*******')
-    // console.log(movies)
-    let SearchInput=''
-    // const search=()=>{
-    //   this.setState({
-    //     search:SearchInput
-    //   })
-    // }
-    
-    
-    return(
-      <div>
-         
-          {/* <input
-            value={this.state.txt}
-            onChange={e => this.onChangeHandler(e)}
-            placeholder="Type something to search"
-          />
-          <button onClick={go}>searsh</button> */}
-         
-        {/* {
-          this.renderMovies
-        } */}
-           
-          <SideNav />
-          <Container filmData={this.state.movies} />
-          {
-         // console.log(`≫ ${this.state.movies} `)
-          
-          }
-          
-      </div>
-    )
-  }
-}
-export default app
 
-// class  App extends  {
+      <Container filmData={moveis} />
+    </div>
+  );
+};
 
-//   //https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher
-//   const myKey = "cd747fb3aa0887ceb7731136b85ec09f"
-  
-//  // https://api.themoviedb.org/3/movie/top_rated?api_key=cd747fb3aa0887ceb7731136b85ec09f&language=en-US&page=1
-  
 
-//   const [moveis,SetMoveis]=useState([])
-//   const [searchInput,SetSearchInput]=useState('')
-//   let req = "https://api.themoviedb.org/3/search/movie?api_key="+myKey+"&query=batman"
-//   let topRated = "https://api.themoviedb.org/3/movie/top_rated?api_key="+myKey+"&language=en-US&page=1"
-//   req=topRated
-//   useEffect(()=>{
-//     getRequist()
+export default App;
 
-//   }, [])
-//   const getRequist= async ()=>{
-//     const response= await fetch(req)
-//     const data = await response.json()
-//     SetMoveis(data.results)
-     
+// class app extends Component{
+
+//   state = {
+//     movies:[],
+//     search:'fast',
+//     loading:false,
+//     txt:'',
+//     msg:'2',
+//     page:1
+
 //   }
- 
-//   const updateSearch=(e)=>{
-//     SetSearchInput(e.target.value)
-    
+//   /**
+//    ++>> my errors naming
+//    *    0 => no input
+//    *    101 => not match search result
+//    *    2 => ok
+//    */
 
-    
-//   }
-//   // const grtSearch=()=>{
+//   search = async s => {
+//     if (this.state.txt !=''){
+//       this.setState({ loading: true });
+//       const data= await searchData(s);
+//       this.setState({movies:data.data.results});
 
-//   // }
-//   const search=()=>{
-//     console.log(searchInput)
-//     req = "https://api.themoviedb.org/3/search/movie?api_key="+myKey+"&query="+searchInput
-     
-//     console.log(req)
-//     //console.log(moveis)1
-//     //req=topRated
-//     getRequist()
+//       console.log(data.data.results)
+//       console.log(`🏁🏁 ${this.state.movies} `)
+//       console.log(`🎞 ${this.state.movies.length} `)
+//       if(this.state.movies.length==0){console.log('no search fond');this.state.msg=1;}
+//   }else{
+//     console.log('enter a search plese')
+//     this.state.msg=101
 //   }
-//   return (
-//     <div>
-      
-//       <input type="text" value={searchInput} onChange={updateSearch} ></input>
-//       <button onClick={search}>test</button>
-      
-//       {/* <Container filmData={moveis} /> */}
-//     </div>
-    
-//   );
+
+//   }
+
+//   // top rated
+//   topRatedMovies = async p => {
+
+//     this.setState({ loading: true });
+//     const data= await topRated(this.state.page);
+//    //console.log('🔴'+ data)
+//      this.setState({movies:data.data.results});
+
+//     // console.log(data.data.results)
+//    // console.log(`🏁🏁 ${this.state.movies} `)
+//   }
+
+//   populerMovies = async p => {
+
+//     this.setState({ loading: true });
+//     const data= await popular();
+//    //console.log('🔴'+ data)
+//      this.setState({movies:data.data.results});
+
+//     // console.log(data.data.results)
+//    // console.log(`🏁🏁 ${this.state.movies} `)
+//   }
+
+//   nextPage = async  => {
+//     let last =this.state.page
+//     console.log('∷∷∷'+this.state.page)
+//     this.setState({page:this.state.page+1})
+//     this.topRatedMovies()
+//   }
+//   previosPage = async  => {
+//     let last =this.state.page;
+//     console.log(this.state.page)
+//     if(this.state.page!=1){
+//     this.setState({page:this.state.page-1})
+//     this.topRatedMovies()
+//     }
+//   }
+//    //txt=''
+//   // e.preventDefolt()
+//   onChangeHandler = async e => {
+//     //e.preventDefault()
+
+//     //txt=e.target.value
+//     this.setState({ txt: e.target.value });
+//     console.log(this.state.txt)
+//   };
+
+//   get renderMovies() {
+//     let movies = <h1>There's no movies</h1>;
+//     if (this.state.movies) {
+//       movies = <Container filmData={this.state.movies} msg={this.state.msg}  />;
+//     }
+
+//     return movies;
+//   }
+//   get renderTest() {
+//     this.populerMovies()
+//     let movies = <h1>There's no movies</h1>;
+//     if (this.state.movies) {
+//       movies = <Container filmData={this.state.movies} msg={this.state.msg}  />;
+//     }
+//     console.log('in test')
+
+//     return movies;
+//   }
+//   doSearch(){
+
+//   }
+
+//   render(){
+//     const go= ()=>{
+
+//       this.search(this.state.txt);
+//       if (this.state.txt){
+//         this.setState({msg:'no serch'})
+//       }
+//     }
+
+//     return(
+//       <Router>
+//       <div>
+//           <input
+//             value={this.state.txt}
+//             onChange={e => this.onChangeHandler(e)}
+//             placeholder="Type something to search"
+//           />
+//           <button onClick={go}>searsh</button>
+//            <button onClick={this.topRatedMovies} >test</button>
+//            <button onClick={this.nextPage} >next</button>
+//            <button onClick={this.previosPage} >previos</button>
+//           {/* <Container filmData={this.state.movies} /> */}
+//           <Route exact path="/" >
+//             {this.renderMovies}
+//           </Route>
+//           <Route  path="/test" >
+
+//             {this.renderTest}
+
+//           </Route>
+
+//       </div>
+//       </Router>
+//     )
+//   }
 // }
-
-// export default App;
-// /*
-//  {moveis.map((movei)=>(
-//     <div>
-//     <img src={"https://image.tmdb.org/t/p/w300/"+movei.poster_path}></img>
-//     <h3>{movei.title}<sup>{movei.release_date}</sup></h3>
-//     <hr></hr>
-//     </div>
-//     ))}
-//     */
+// export default app
