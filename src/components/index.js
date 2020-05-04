@@ -1,0 +1,5 @@
+export {default as Search} from './search/search'
+export {default as SideNav} from './SideNav/SideNav.js'
+export {default as TopRate} from './TopRate/TopRate'
+export {default as Populer} from './Populer/Populer'
+export {default as Newest} from './Newest/newest'

@@ -39,6 +39,7 @@ export const topRated = async ( page )=>{
     }
 }
 
+
 export const popular = async ( page )=>{
     let url =
     "https://api.themoviedb.org/3/movie/popular?api_key="+myKey+"&language=en-US&page=1"//+page
@@ -51,3 +52,18 @@ export const popular = async ( page )=>{
     }
 
 }
+
+
+export const trending = async ( )=>{
+    let url =
+    "https://api.themoviedb.org/3/trending/movie/week?api_key="+myKey
+   // https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1
+    try {
+        const data = await axios.get(url);
+        return data;
+    } catch (error) {
+        console.log('eroor');
+    }
+
+}
+
