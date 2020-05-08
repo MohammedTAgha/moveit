@@ -1,13 +1,20 @@
 import React from "react";
+import  { useState, useEffect } from 'react'
+
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Film from "./TopRated";
-import logo from "./logoo.svg";
+import logo from "./Img/logoo.svg";
+import {Loader} from "./";                
 import "../App.css";
 
 const Container = props => {
-  console.log("*****");
-  console.log(props);
+  
+
+  useEffect(() => {
+   console.log('🎌🎌')
+   console.log(props)
+  }, []);
 
   const renderFilm = () => {};
   return (
@@ -15,36 +22,21 @@ const Container = props => {
       <div>
         <div className="bg-div"></div>
         <div className="container">
-          <div className="nav-bar">
-            <img src={logo} alt="aa" />
-          </div>
+          
         </div>
         <div className="page">
-          {/* <div className="side-bar"> 
-            <ul>
-                <li>All movies</li>
-                <li>Top rated</li>
-                <li>Top veiws</li>
-                <li>Newest</li>
-                
-            </ul>
-            <ul>
-
-                <li>action</li>
-                <li>Top rated</li>
-                <li>Top veiws</li>
-                <li>Newest</li>
-            </ul>
-
-        </div> */}
+         
           <div className="content">
+          <label>
+            <input type="text" placeholder="Password"/>
+          </label>
             <div className="film-holder">
               {/*-------------------------  */}
-              <Route path="/">
+               <Loader />
                 {props.filmData.map(film => (
                   <Film movie={film} />
                 ))}
-              </Route>
+               
 
               {/*-------------------------  */}
             </div>

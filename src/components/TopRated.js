@@ -9,9 +9,11 @@ const Film = (props) => {
     let films=props.movie
      
     const thumImg = "https://image.tmdb.org/t/p/w500/"
+    var release=films.release_date.slice(0,4)
+
         // console.log('films')
         // console.log(films)
-    console.log('🧾🧾'+ JSON.stringify(props.movie.genre_ids))
+    //console.log('🧾🧾'+ JSON.stringify(props.movie.genre_ids))
     return ( 
         //  <div></div>
         
@@ -32,9 +34,9 @@ const Film = (props) => {
                 </div>
                 <hr />
                 <div className="coliction">
-                <p>USA</p>
-                <p>2020</p>
-                <p>+15</p>
+                <p>{films.original_language}</p>
+                <p>{release}</p>
+                {films.adult?<p>+10</p>:<p>+18</p>}
                 </div>
                 
             </div>

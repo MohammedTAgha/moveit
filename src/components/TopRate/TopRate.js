@@ -6,6 +6,7 @@ import { topRated } from "../../API";
 import { popular } from "../../API";
 import Container from "../Container";
  
+import Loader from '../'
 
  
 import TopNav from "./../TopNav";
@@ -20,8 +21,8 @@ const TopRate = () => {
   const [searchInput, SetSearchInput] = useState("");  // 🔍 search input state
 
   useEffect(() => {
-    getRequist();
-  }, []);
+    getTopRated();
+  }, [  ]);
   const getRequist = async s => {
     if (searchInput != "") {
       const data = await searchData(searchInput);
@@ -53,6 +54,8 @@ const TopRate = () => {
     getRequist(searchInput);
   };
 
+  // getTopRated();
+
   return (
     <Router>
     <div>
@@ -63,6 +66,7 @@ const TopRate = () => {
       
       
       <Container filmData={moveis} />
+      
     </div>
     </Router>
   );

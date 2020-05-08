@@ -16,7 +16,7 @@ const Populer = () => {
   const [searchInput, SetSearchInput] = useState("");  // 🔍 search input state
 
   useEffect(() => {
-    getRequist();
+    getTrinding();
   }, []);
   const getRequist = async s => {
     if (searchInput != "") {
@@ -48,15 +48,19 @@ const Populer = () => {
     console.log("🟢🟢" + searchInput);
     getRequist(searchInput);
   };
+  
 
+  const test = () => {
+    console.log('🐒🐒🐒🐒')
+  }
   return (
     <Router>
     <div>
-      <input type="text" value={searchInput} onChange={updateSearch}></input>
+      {/* <input type="text" value={searchInput} onChange={updateSearch}></input>
       <button onClick={search}>test</button>
-      <button onClick={getTrinding}>trind</button>
+      <button onClick={getTrinding}>trind</button> */}
        
-      <Container filmData={moveis} />
+      <Container filmData={moveis} SetSearch={test()} />
     </div>
     </Router>
   );

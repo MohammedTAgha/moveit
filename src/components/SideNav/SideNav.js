@@ -9,13 +9,13 @@ const SideNav = () => {
         <Router>
         <div className="side-bar"> 
             <ul>
-                <li>All movies</li>
-                <li>Explore</li>
-                <li>Top rated</li>
                 
-                <li><Link to='/populer' style={{ color: 'inherit', textDecoration: 'inherit'}}>populer</Link></li>
-                 
-                <li>Newest</li>
+                <li><Link to="/" style={{ color: 'inherit', textDecoration: 'inherit'}}>All movie</Link></li>
+                <li><Link to="/explor" style={{ color: 'inherit', textDecoration: 'inherit'}}>Explor</Link></li>
+                <li><Link to="/toprate" style={{ color: 'inherit', textDecoration: 'inherit'}}>Top rated</Link></li>
+                <li><Link to="/populer" style={{ color: 'inherit', textDecoration: 'inherit'}}>populer</Link></li>
+                <li><Link to="/trinding" style={{ color: 'inherit', textDecoration: 'inherit'}}>Trinding</Link></li>
+                
             </ul>
             <ul>
                 <li>Action</li>

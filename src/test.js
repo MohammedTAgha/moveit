@@ -441,9 +441,7 @@ class app extends Component{
            <button onClick={this.nextPage} >next</button>
            <button onClick={this.previosPage} >previos</button>
           {/* <Container filmData={this.state.movies} /> */}
-          <Route exact path="/" >
-            {this.renderMovies}
-          </Route>
+         
           <Route  path="/test" >
             
             {this.renderTest}

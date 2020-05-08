@@ -20,6 +20,7 @@ export const searchData = async ( keyward )=>{
     "https://api.themoviedb.org/3/search/movie?api_key="+myKey+"&query="+keyward;
     try {
         const data = await axios.get(url) ;
+        console.log( ' 🚩🚩🚩 start data')
        // const data = await res.json();
         return data;
     } catch (error) {
@@ -33,6 +34,8 @@ export const topRated = async ( page )=>{
 
     try {
         const data = await axios.get(url);
+        console.log( ' 🚩🚩🚩 start data')
+
         return data;
     } catch (error) {
         console.log('eroor');
@@ -46,6 +49,8 @@ export const popular = async ( page )=>{
    // https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1
     try {
         const data = await axios.get(url);
+        console.log( ' 🚩🚩🚩 start data')
+
         return data;
     } catch (error) {
         console.log('eroor');

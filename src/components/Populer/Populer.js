@@ -20,8 +20,8 @@ const Populer = () => {
   const [searchInput, SetSearchInput] = useState("");  // 🔍 search input state
 
   useEffect(() => {
-    getRequist();
-  }, []);
+    getPopular();
+  }, [  ]);
   const getRequist = async s => {
     if (searchInput != "") {
       const data = await searchData(searchInput);
