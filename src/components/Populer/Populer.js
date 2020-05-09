@@ -5,9 +5,7 @@ import { searchData } from "../../API";
 import { topRated } from "../../API";
 import { popular } from "../../API";
 import Container from "../Container";
- 
 
- 
 import TopNav from "./../TopNav";
 
 const Populer = () => {
@@ -16,12 +14,12 @@ const Populer = () => {
 
   // https://api.themoviedb.org/3/movie/top_rated?api_key=cd747fb3aa0887ceb7731136b85ec09f&language=en-US&page=1
 
-  const [moveis, SetMoveis] = useState([]);   // 🎬 movie state  
-  const [searchInput, SetSearchInput] = useState("");  // 🔍 search input state
+  const [moveis, SetMoveis] = useState([]); // 🎬 movie state
+  const [searchInput, SetSearchInput] = useState(""); // 🔍 search input state
 
   useEffect(() => {
     getPopular();
-  }, [  ]);
+  }, []);
   const getRequist = async s => {
     if (searchInput != "") {
       const data = await searchData(searchInput);
@@ -33,16 +31,14 @@ const Populer = () => {
     }
   };
 
-  const getPopular = async () => {   //page in parametars  🏁🏁 git and sit top rated movies
+  const getPopular = async () => {
+    //page in parametars  🏁🏁 git and sit top rated movies
     const data = await popular(1);
     console.log(data.data);
-    SetMoveis(data.data.results)
-    console.log('🔥'+moveis)
+    SetMoveis(data.data.results);
+    console.log("🔥" + moveis);
     return data;
   };
-
-
-  
 
   const updateSearch = e => {
     SetSearchInput(e.target.value);
@@ -54,22 +50,22 @@ const Populer = () => {
     console.log("🟢🟢" + searchInput);
     getRequist(searchInput);
   };
+  const getSearch=( val )=>{
+    console.log(val)
+  }
+
 
   return (
     <Router>
-    <div>
-      <input type="text" value={searchInput} onChange={updateSearch}></input>
+      <div>
+        {/* <input type="text" value={searchInput} onChange={updateSearch}></input>
       <button onClick={search}>test</button>
-      <button onClick={getPopular}>test3</button>
-       
-      
-      
-      <Container filmData={moveis} />
-    </div>
+      <button onClick={getPopular}>test3</button> */}
+
+        <Container filmData={moveis} getSearch={getSearch()}  />
+      </div>
     </Router>
   );
 };
 
-
 export default Populer;
-

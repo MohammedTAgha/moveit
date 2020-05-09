@@ -5,10 +5,9 @@ import { searchData } from "../../API";
 import { topRated } from "../../API";
 import { popular } from "../../API";
 import Container from "../Container";
- 
-import Loader from '../'
 
- 
+import Loader from "../";
+
 import TopNav from "./../TopNav";
 
 const TopRate = () => {
@@ -17,12 +16,12 @@ const TopRate = () => {
 
   // https://api.themoviedb.org/3/movie/top_rated?api_key=cd747fb3aa0887ceb7731136b85ec09f&language=en-US&page=1
 
-  const [moveis, SetMoveis] = useState([]);   // 🎬 movie state  
-  const [searchInput, SetSearchInput] = useState("");  // 🔍 search input state
+  const [moveis, SetMoveis] = useState([]); // 🎬 movie state
+  const [searchInput, SetSearchInput] = useState(""); // 🔍 search input state
 
   useEffect(() => {
     getTopRated();
-  }, [  ]);
+  }, []);
   const getRequist = async s => {
     if (searchInput != "") {
       const data = await searchData(searchInput);
@@ -34,14 +33,19 @@ const TopRate = () => {
     }
   };
 
-  const getTopRated = async () => {   //page in parametars  🏁🏁 git and sit top rated movies
-    const data = await topRated(1);
-    console.log(data.data);
-    SetMoveis(data.data.results)
-    return data;
+  const getTopRated = async () => {
+    //page in parametars  🏁🏁 git and sit top rated movies
+    let data = await topRated(1);
+    if (!data){
+      console.log('🚫🚫🚫🚫🚫')
+      data=[]
+    }else{
+      console.log(data.data);
+      SetMoveis(data.data.results);
+      return data;
+    }
+    
   };
-
-  
 
   const updateSearch = e => {
     SetSearchInput(e.target.value);
@@ -53,25 +57,22 @@ const TopRate = () => {
     console.log("🟢🟢" + searchInput);
     getRequist(searchInput);
   };
+  const getSearch = () => {
 
+  }
   // getTopRated();
 
   return (
     <Router>
-    <div>
-      <input type="text" value={searchInput} onChange={updateSearch}></input>
+      <div>
+        {/* <input type="text" value={searchInput} onChange={updateSearch}></input>
       <button onClick={search}>test</button>
-      <button onClick={getTopRated}>test2</button>
-       
-      
-      
-      <Container filmData={moveis} />
-      
-    </div>
+      <button onClick={getTopRated}>test2</button> */}
+
+        <Container filmData={moveis} getSearch={getSearch()} />
+      </div>
     </Router>
   );
 };
 
-
 export default TopRate;
-

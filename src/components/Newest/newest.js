@@ -50,7 +50,7 @@ const Populer = () => {
   };
   
 
-  const test = () => {
+  const getSearch = () => {
     console.log('🐒🐒🐒🐒')
   }
   return (
@@ -60,7 +60,7 @@ const Populer = () => {
       <button onClick={search}>test</button>
       <button onClick={getTrinding}>trind</button> */}
        
-      <Container filmData={moveis} SetSearch={test()} />
+      <Container filmData={moveis} getSearch={getSearch()} />
     </div>
     </Router>
   );

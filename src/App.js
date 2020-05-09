@@ -67,12 +67,10 @@ const App = () => {
     </Route>
 
     <Route exact path="/trinding" >
-    <Loader />
+    <Newest />
     </Route>
     
-    <Route exact path="/test" >
-    <Loader />
-    </Route>
+    
 
     </Switch>
     </>

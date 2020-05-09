@@ -25,6 +25,7 @@ export const searchData = async ( keyward )=>{
         return data;
     } catch (error) {
         console.log('eroor');
+        return null;
     }
     
 }
@@ -39,6 +40,7 @@ export const topRated = async ( page )=>{
         return data;
     } catch (error) {
         console.log('eroor');
+        return null;
     }
 }
 
@@ -54,6 +56,7 @@ export const popular = async ( page )=>{
         return data;
     } catch (error) {
         console.log('eroor');
+        return null;
     }
 
 }
@@ -68,6 +71,7 @@ export const trending = async ( )=>{
         return data;
     } catch (error) {
         console.log('eroor');
+        return null;
     }
 
 }
