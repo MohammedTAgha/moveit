@@ -1,9 +1,12 @@
 import React, { useEffect, useState, Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Route, Switch, NavLink, Link } from "react-router-dom";
+// import { BrowserRouter as Router } from "react-router-dom";
+// import { Route, Switch, NavLink, Link } from "react-router-dom";
 import { searchData } from "../../API";
 import { topRated } from "../../API";
 import { popular } from "../../API";
+
+import Movies from "../../movies";
+
 import Container from "../Container";
 
 import TopNav from "./../TopNav";
@@ -50,22 +53,11 @@ const Populer = () => {
     console.log("🟢🟢" + searchInput);
     getRequist(searchInput);
   };
-  const getSearch=( val )=>{
-    console.log(val)
-  }
+  const getSearch = val => {
+    console.log(val);
+  };
 
-
-  return (
-    <Router>
-      <div>
-        {/* <input type="text" value={searchInput} onChange={updateSearch}></input>
-      <button onClick={search}>test</button>
-      <button onClick={getPopular}>test3</button> */}
-
-        <Container filmData={moveis} getSearch={getSearch()}  />{/**most be movies container only */}
-      </div>
-    </Router>
-  );
+  return <Movies movies={moveis} />;
 };
 
 export default Populer;

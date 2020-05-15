@@ -1,25 +1,31 @@
-import React from 'react'
-import  { useState, useEffect } from 'react'
+import React from "react";
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Route, Switch, NavLink, Link } from "react-router-dom";
 
 
-import Film from '../src/components/Film'
-const Movies = (props) => {
+import Film from "../src/components/Film";
+const Movies = props => {
   useEffect(() => {
-    console.log('props is -->'+props)
+    console.log("props is -->" + props);
   }, []);
-    return ( 
-        <div className="film-holder">
-              {/*-------------------------  */}
-               
-                {props.movies.map(film => (
-                  <Film movie={film}  key={film.id} />
-                ))}
-               
 
-              {/*-------------------------  */}
-            </div>
-     );
-}
- 
+  return (
+    <Router>
+      
+    <div className="film-holder">
+      {/*-------------------------  */}
+
+      {props.movies.map(film => (
+        <Link to={'/deatelss/'+film.id} key={film.id} >
+          <Film movie={film}  />
+        </Link>
+      ))}
+
+      {/*-------------------------  */}
+    </div>
+    </Router>
+  );
+};
+
 export default Movies;
-

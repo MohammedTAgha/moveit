@@ -11,13 +11,15 @@ import {TopRate} from './components'
 import {Populer} from './components'
 import {Newest} from './components'
 import {Loader} from './components'
+import {Details} from './components'
+import {Search} from './components';
 
 import logo from './components/Img/logoo.svg'
 // import Player from "./components/Player";
 
-import {Search} from './components';
  
 import TopNav from "./components/TopNav";
+import Container from "./components/MainContainer";
 
 const App = () => {
   return(
@@ -50,29 +52,21 @@ const App = () => {
             </ul>
         </div>
     <Switch>
+     
     
-    <Route exact path="/" >
-    <Search />
-    </Route>
-
-    <Route exact path="/Populer" >
-    <Populer />
-    </Route>
+        <Container >
+          
+        </Container>
     
-    <Route exact path="/explor" >
-    <Search />
-    </Route>
-
-    <Route exact path="/toprate" >
-    <TopRate />
-    </Route>
-
-    <Route exact path="/trinding" >
-    <Newest />
-    </Route>
-    
+    <Route exact path="/movies/" >
+        <Container />
+            
     
 
+        
+    </Route>
+
+     
     </Switch>
 
     {/* ? =========== side nav =========== */}

@@ -6,6 +6,7 @@ import { topRated } from "../../API";
 import { popular } from "../../API";
 import Container from "../Container";
 import { Loader } from "../index";
+import Movies  from "../../movies";
 
 import TopNav from "./../TopNav";
 
@@ -65,16 +66,7 @@ const Search = () => {
   }
 
   return (
-    <Router>
-      <div>
-        {/* <input type="text" value={searchInput} onChange={updateSearch}></input>
-      <button onClick={search}>test</button>
-      <button onClick={getTopRated}>test2</button>
-      <button onClick={getPopular}>test3</button> */}
-
-        <Container filmData={moveis} getSearch={getSearch()}/>
-      </div>
-    </Router>
+    <Movies movies={moveis}  /> 
   );
 };
 

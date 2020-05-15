@@ -5,6 +5,7 @@ import { searchData } from "../../API";
 import { topRated } from "../../API";
 import { popular } from "../../API";
 import Container from "../Container";
+import Movies from "../../movies";
 
 import Loader from "../";
 
@@ -36,15 +37,14 @@ const TopRate = () => {
   const getTopRated = async () => {
     //page in parametars  🏁🏁 git and sit top rated movies
     let data = await topRated(1);
-    if (!data){
-      console.log('🚫🚫🚫🚫🚫')
-      data=[]
-    }else{
+    if (!data) {
+      console.log("🚫🚫🚫🚫🚫");
+      data = [];
+    } else {
       console.log(data.data);
       SetMoveis(data.data.results);
       return data;
     }
-    
   };
 
   const updateSearch = e => {
@@ -57,21 +57,12 @@ const TopRate = () => {
     console.log("🟢🟢" + searchInput);
     getRequist(searchInput);
   };
-  const getSearch = () => {
-
-  }
+  const getSearch = () => {};
   // getTopRated();
 
   return (
-    <Router>
-      <div>
-        {/* <input type="text" value={searchInput} onChange={updateSearch}></input>
-      <button onClick={search}>test</button>
-      <button onClick={getTopRated}>test2</button> */}
-
-        <Container filmData={moveis} getSearch={getSearch()} />
-      </div>
-    </Router>
+    <Movies movies={moveis} />
+    // <Container filmData={moveis}  />
   );
 };
 

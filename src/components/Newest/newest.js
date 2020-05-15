@@ -5,7 +5,8 @@ import { searchData } from "../../API";
 import { topRated } from "../../API";
 import { trending } from "../../API";
 import Container from "../Container";
- 
+ import Movies  from "../../movies";
+
 
  
 import TopNav from "./../TopNav";
@@ -54,15 +55,8 @@ const Populer = () => {
     console.log('🐒🐒🐒🐒')
   }
   return (
-    <Router>
-    <div>
-      {/* <input type="text" value={searchInput} onChange={updateSearch}></input>
-      <button onClick={search}>test</button>
-      <button onClick={getTrinding}>trind</button> */}
-       
-      <Container filmData={moveis} getSearch={getSearch()} />
-    </div>
-    </Router>
+     <Movies movies={moveis}  /> 
+    
   );
 };
 

@@ -1,9 +1,8 @@
- 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Baloo Paaji 2', cursive;
+  font-family: "Baloo Paaji 2", cursive;
 }
 * {
   padding: 0;
@@ -32,40 +31,37 @@ body {
   height: 100%;
   position: relative;
 }
- .side-bar {
+.side-bar {
   height: 92vh;
   display: flex;
   flex-direction: column;
   margin-right: 0;
-  
 
   width: 15vw;
   background: rgba(255, 255, 255, 0);
   float: left;
 }
- .side-bar ul{
+.side-bar ul {
   margin-top: 35px;
   margin-left: 30px;
   margin-right: 0;
   list-style-type: none;
   color: rgb(250, 250, 250);
-  
+
   font-size: 24px;
   font-weight: 400;
-
 }
- .side-bar ul li{
+.side-bar ul li {
   padding: 8px 0px 8px 10px;
   cursor: pointer;
   transition: all 0.2s ease;
   border-bottom-left-radius: 8px;
   border-top-left-radius: 8px;
-  margin:2px 0 ;
-
+  margin: 2px 0;
 }
-.side-bar ul li:hover{
- color: #ff4d2c;
- background-color: rgb(250, 250, 250);
+.side-bar ul li:hover {
+  color: #ff4d2c;
+  background-color: rgb(250, 250, 250);
 }
 .content {
   position: absolute;
@@ -74,12 +70,12 @@ body {
   float: right;
   right: 0;
   top: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   /* padding-top: 65px;
     padding-left: 50px; */
   border-top-left-radius: 20px;
   background-color: rgba(0, 0, 0, 0.568);
-  
+
   overflow: scroll;
 }
 
@@ -91,12 +87,12 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: transparent; 
+  background: transparent;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(136, 136, 136, 0.466); 
+  background: rgba(136, 136, 136, 0.466);
 }
 
 /* Handle on hover */
@@ -121,48 +117,47 @@ body {
   margin-bottom: 40px;
   border-radius: 5px;
   cursor: pointer;
-
 }
-.film img {
+.film #thum {
   width: 100%;
   height: 100%;
   border-radius: 5px;
 }
 
 .film .overlay {
-   position: absolute;
+  position: absolute;
   height: 100%;
   width: 100%;
   /* display: none; */
-  font-family: 'Roboto', sans-serif;
-
-
-
+  font-family: "Roboto", sans-serif;
 
   opacity: 0;
   bottom: 0;
   left: 0;
   color: #fff;
   cursor: pointer;
- 
-    /* Note: currently only Safari supports backdrop-filter */
-    backdrop-filter: blur(0px);
-    /* --webkit-backdrop-filter: blur(0px); */
-    background-color: 
-    linear-gradient(0deg, rgba(255, 255, 255, 0.5544) 3.55%, rgba(255, 255, 255, 0.3024) 40.05%, rgba(255, 255, 255, 0.1512) 58.53%);
-    transition: all 0.15s ease ;
-    overflow: scroll;
-    /* transition: opacity 0.3s ease ; */
-    
+
+  /* Note: currently only Safari supports backdrop-filter */
+  backdrop-filter: blur(0px);
+  /* --webkit-backdrop-filter: blur(0px); */
+  background-color: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.5544) 3.55%,
+    rgba(255, 255, 255, 0.3024) 40.05%,
+    rgba(255, 255, 255, 0.1512) 58.53%
+  );
+  transition: all 0.15s ease;
+  overflow: scroll;
+  /* transition: opacity 0.3s ease ; */
 }
 
-.film:hover  .overlay {
-    display: block;
-    height:60%;
-    opacity: 1;
+.film:hover .overlay {
+  display: block;
+  height: 60%;
+  opacity: 1;
 
-    backdrop-filter: blur(3.5px);
-    /* --webkit-backdrop-filter: blur(3.5px); */
+  backdrop-filter: blur(3.5px);
+  /* --webkit-backdrop-filter: blur(3.5px); */
 }
 
 /* .overlay:hover {
@@ -174,43 +169,39 @@ body {
     --webkit-backdrop-filter: blur(5.5px);
 } */
 
-.film-name{
+.film-name {
   font-size: 22px;
-  margin:2px 5px;
+  margin: 2px 5px;
   text-align: center;
   margin-top: 4px;
   text-transform: uppercase;
   line-height: 24px;
   margin-bottom: 0px;
-
 }
-.overlay hr{
+.overlay hr {
   width: 70%;
   margin: 0 auto;
   margin-top: -1px;
   background: #c4c4c400;
 }
-.overlay .film-rate{
-  
+.overlay .film-rate {
   margin: 0 auto;
   text-align: center;
-  
 }
-.overlay .film-rate span p{
+.overlay .film-rate span p {
   height: 25px;
 }
-.overlay .film-rate span sub img{
+.overlay .film-rate span sub img {
   height: 25px;
   width: 40px;
-  transform: translate(0px,4px);
-   
+  transform: translate(0px, 4px);
 }
-.overlay  .coliction{
+.overlay .coliction {
   display: flex;
   justify-content: center;
-  
 }
-.overlay .film-rate .coliction p,.overlay .coliction p{
+.overlay .film-rate .coliction p,
+.overlay .coliction p {
   margin-right: 8px;
   margin-bottom: 4px;
   background-color: rgba(184, 184, 184, 0.596);
@@ -221,13 +212,13 @@ body {
   font-weight: 800;
 }
 
-.overlay .coliction p{
+.overlay .coliction p {
   margin-top: 4px;
   color: azure;
   background-color: rgb(36, 36, 36);
   font-weight: 400;
 }
- /* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 /* 
 
  .cont {
@@ -269,14 +260,10 @@ overlayBottom{
 .cont:hover .overlayTop ,.cont:hover .overlayBottom {
     height: 100%;
 } */
-.nxt-pg{
+.nxt-pg {
   background-color: rgb(236, 10, 10);
   z-index: 555;
 }
-
-
-
-
 
 /* -------------------------------------------------------------------------- */
 
@@ -290,13 +277,13 @@ input {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
   padding: 16px;
-  background-color: #EBECF0;
-  text-shadow: 1px 1px 0 #FFF;
+  background-color: #ebecf0;
+  text-shadow: 1px 1px 0 #fff;
 }
-.go{
-  position:relative;
+.go {
+  position: relative;
   display: inline-block;
-  height: 50px ;
+  height: 50px;
   width: 80px;
   border: none;
   appearance: none;
@@ -305,17 +292,14 @@ input {
   margin: 0;
   padding: 0;
   transform: translateY(-1px);
-cursor: pointer;
-
+  cursor: pointer;
 
   border-bottom-right-radius: 320px;
   border-top-right-radius: 320px;
 }
-.go:active{
-  color:#FF4D2C;
+.go:active {
+  color: #ff4d2c;
 }
-
-
 
 input {
   /* float: left; */
@@ -323,31 +307,27 @@ input {
   margin-left: 50px;
   margin-top: 20px;
   margin-bottom: 20px;
-  box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
-   width: 280px;
+  box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
+  width: 280px;
   box-sizing: border-box;
   transition: all 0.2s ease-in-out;
   appearance: none;
   -webkit-appearance: none;
 }
 input:focus {
-  box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+  box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
   width: 380px;
-
 }
-
-
 
 /* -------------------------------- end input ------------------------------- */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 
-
 /* ----------------------------- head navigation ----------------------------- */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 
-.head{
+.head {
   width: 100%;
   height: 90px;
   display: flex;
@@ -360,7 +340,6 @@ input:focus {
   margin-right: 40px;
 
   /* background-color: rgba(255, 255, 255, 0.123); */
-  
 }
 nav ul {
   /* float: right; */
@@ -369,11 +348,10 @@ nav ul {
   text-align: center;
   align-items: center;
   /* vertical-align: middle; */
-  
+
   /* margin-top: 20px; */
   height: 100%;
   width: 100%;
-
 }
 nav ul li {
   display: inline-block;
@@ -387,12 +365,12 @@ nav ul li {
   letter-spacing: 0.04em;
   transition: all 0.5s ease 0s;
   padding: 5px 10px;
-  
+
   border-radius: 5px;
   cursor: pointer;
 }
 nav ul li:hover {
-  background-color: #FF4D2C;
+  background-color: #ff4d2c;
 }
 
 /* .head ul li a  {
@@ -406,5 +384,5 @@ nav ul li:hover {
   padding: 20px 8px;
 
   /* height: 64px; */
-  /* margin: auto; *//*
+/* margin: auto; */ /*
 }*/
