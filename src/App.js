@@ -24,6 +24,7 @@ const App = () => {
     <Router>
     <>
     {/* <SideNav /> */}
+    {/* ? =========== side nav =========== */}
     <div className="side-bar"> 
             <div className="container">
                 <div className="nav-bar">
@@ -73,6 +74,11 @@ const App = () => {
     
 
     </Switch>
+
+    {/* ? =========== side nav =========== */}
+
+    
+
     </>
     </Router>
   );

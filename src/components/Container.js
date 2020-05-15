@@ -3,7 +3,8 @@ import  { useState, useEffect } from 'react'
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import Film from "./TopRated";
+//import Film from "./TopRated";
+import Movies from '../movies'
 import logo from "./Img/logoo.svg";
 import {Loader} from "./";  
 import userImg from './Img/user.svg'              
@@ -68,16 +69,19 @@ const Container = props => {
            </nav>
           </div >
           
-            <div className="film-holder">
-              {/*-------------------------  */}
-               <Loader />
+            {/* <div className="film-holder">
+               
+               
                 {props.filmData.map(film => (
                   <Film movie={film} />
                 ))}
                
 
-              {/*-------------------------  */}
-            </div>
+               
+            </div> */}
+            <Movies movies={props.filmData}  />
+            
+
             <button className="nxt-pg">next</button>
           </div>
         </div>

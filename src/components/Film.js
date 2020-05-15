@@ -1,11 +1,13 @@
 import React from 'react'
 import '../App.css'
 import imdbIcon from './imdb.svg'
+import {withRouter} from  "react-router-dom";
 
 
 
 
 const Film = (props) => {
+    console.log('📃📃' + props.movie )
     let films=props.movie
      
     const thumImg = "https://image.tmdb.org/t/p/w500/"
@@ -47,5 +49,5 @@ const Film = (props) => {
       );
 }
  
-export default Film;
+export default withRouter(Film);
 

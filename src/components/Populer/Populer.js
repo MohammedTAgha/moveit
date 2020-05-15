@@ -62,7 +62,7 @@ const Populer = () => {
       <button onClick={search}>test</button>
       <button onClick={getPopular}>test3</button> */}
 
-        <Container filmData={moveis} getSearch={getSearch()}  />
+        <Container filmData={moveis} getSearch={getSearch()}  />{/**most be movies container only */}
       </div>
     </Router>
   );
