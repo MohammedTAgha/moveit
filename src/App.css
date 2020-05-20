@@ -1,3 +1,7 @@
+:root{
+  --brimary:#FF4D2C;
+
+}
 body {
   margin: 0;
   padding: 0;
@@ -14,13 +18,17 @@ body {
   height: 100vh;
   position: fixed;
   z-index: -1;
-  background: linear-gradient(
+
+  /*?   dark   */
+  /* background: linear-gradient(
     331.58deg,
     rgba(48, 5, 5, 0.871) -34.61%,
     #230b3f 13.86%,
     #202f3b 62.45%,
     #202f3b 96%
-  );
+  ); */
+
+  background:#fff;
 }
 .nav-bar {
   height: 8vh;
@@ -32,13 +40,13 @@ body {
   position: relative;
 }
 .side-bar {
-  height: 92vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   margin-right: 0;
 
   width: 15vw;
-  background: rgba(255, 255, 255, 0);
+  background: linear-gradient(#31444e 0%, rgba(70, 94, 105, 0.88) 100%);
   float: left;
 }
 .side-bar ul {
@@ -60,7 +68,7 @@ body {
   margin: 2px 0;
 }
 .side-bar ul li:hover {
-  color: #ff4d2c;
+  color: var(--brimary);
   background-color: rgb(250, 250, 250);
 }
 .content {
@@ -74,7 +82,7 @@ body {
   /* padding-top: 65px;
     padding-left: 50px; */
   border-top-left-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.568);
+  background-color: transparent;
 
   overflow: scroll;
 }
@@ -97,7 +105,7 @@ body {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff4d2c;
+  background: var(--brimary);
 }
 .film-holder {
   margin-top: 32px;
@@ -298,7 +306,7 @@ input {
   border-top-right-radius: 320px;
 }
 .go:active {
-  color: #ff4d2c;
+  color: var(--brimary);
 }
 
 input {
@@ -328,12 +336,21 @@ input:focus {
 /* -------------------------------------------------------------------------- */
 
 .head {
-  width: 100%;
-  height: 90px;
+  width: 85%;
+  height: 70px;
   display: flex;
+  position: fixed;
   justify-content: space-between;
   align-items: center;
   text-align: center;
+  z-index: 9002;
+  background-color: rgba(226, 226, 226, 0.205);
+  backdrop-filter: blur(2px);
+  --webkit-backdrop-filter: blur(2px);
+
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(153,153,153,1);
+-moz-box-shadow: 0px 0px 5px 0px rgba(153,153,153,1);
+box-shadow: 0px 0px 5px 0px rgba(153,153,153,1);
 }
 .head nav {
   height: 100%;
@@ -358,12 +375,13 @@ nav ul li {
   margin-right: 10px;
   text-align: center;
   outline: none;
-  color: #ffffffe3;
+  color: #364953;
+  /* color: #ffffffe3;   !for dark */ 
   background-color: transparent;
   font-size: 18px;
   text-decoration: none;
   letter-spacing: 0.04em;
-  transition: all 0.5s ease 0s;
+  transition: all 0.35s ease 0s;
   padding: 5px 10px;
 
   border-radius: 5px;
@@ -371,6 +389,7 @@ nav ul li {
 }
 nav ul li:hover {
   background-color: #ff4d2c;
+  color:#ffffff;
 }
 
 /* .head ul li a  {

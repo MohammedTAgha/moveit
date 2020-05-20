@@ -76,3 +76,20 @@ export const trending = async ( )=>{
 
 }
 
+
+export const getMovieDetails = async ( id )=>{
+    console.log('id = '+id)
+    let url =
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${myKey}`
+   // https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1
+    try {
+        const data = await axios.get(url);
+        return data;
+    } catch (error) {
+        console.log('eroor');
+        return null;
+    }
+
+}
+
+

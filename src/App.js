@@ -2,82 +2,103 @@ import React, { useEffect, useState, Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Switch, NavLink, Link } from "react-router-dom";
 
-
 // import { topRated } from "./API";
 // import { popular } from "./API";
- 
-// import {SideNav} from './components'
-import {TopRate} from './components'
-import {Populer} from './components'
-import {Newest} from './components'
-import {Loader} from './components'
-import {Details} from './components'
-import {Search} from './components';
 
-import logo from './components/Img/logoo.svg'
+// import {SideNav} from './components'
+import { TopRate } from "./components";
+import { Populer } from "./components";
+import { Newest } from "./components";
+import { Loader } from "./components";
+import { Details } from "./components";
+import { Search } from "./components";
+import { NotFound } from "./components";
+
+import logo from "./components/Img/logoo.svg";
 // import Player from "./components/Player";
 
- 
 import TopNav from "./components/TopNav";
 import Container from "./components/MainContainer";
 
 const App = () => {
-  return(
+  return (
     <Router>
-    <>
-    {/* <SideNav /> */}
-    {/* ? =========== side nav =========== */}
-    <div className="side-bar"> 
-            <div className="container">
-                <div className="nav-bar">
-                    <img src={logo} alt="aa"/>
-                </div>
+      <>
+        {/* <SideNav /> */}
+        {/* ? =========== side nav =========== */}
+        <div className="side-bar">
+          <div className="container">
+            <div className="nav-bar">
+              <img src={logo} alt="aa" />
             </div>
-            <ul>
-                
-                <li><Link to="/" style={{ color: 'inherit', textDecoration: 'inherit'}}>All movie</Link></li>
-                <li><Link to="/explor" style={{ color: 'inherit', textDecoration: 'inherit'}}>Explor</Link></li>
-                <li><Link to="/toprate" style={{ color: 'inherit', textDecoration: 'inherit'}}>Top rated</Link></li>
-                <li><Link to="/populer" style={{ color: 'inherit', textDecoration: 'inherit'}}>populer</Link></li>
-                <li><Link to="/trinding" style={{ color: 'inherit', textDecoration: 'inherit'}}>Trinding</Link></li>
-                
-            </ul>
-            <ul>
-                <li>Action</li>
-               
-                <li>Drama</li>
-                <li>Comidy</li>
-                <li>Crime</li>
-                <li>Romantic</li>
-            </ul>
-        </div>
-    <Switch>
-     
-    
-        <Container >
-          
-        </Container>
-    
-    <Route exact path="/movies/" >
-        <Container />
+          </div>
+          <ul>
+            <li>
+              <NavLink
+                to="/"
+                style={{ color: "inherit", textDecoration: "inherit" }}
+              >
+                All movie
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/explor"
+                style={{ color: "inherit", textDecoration: "inherit" }}
+              >
+                Explor
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/toprate"
+                style={{ color: "inherit", textDecoration: "inherit" }}
+              >
+                Top rated
+              </NavLink>
+            </li>
             
-    
+              <NavLink
+                to="/populer"
+                style={{ color: "inherit", textDecoration: "inherit" }}
+              >
+                <li> 
+                populer
+                </li>
+              </NavLink>
+            
+            <li>
+              <NavLink
+                to="/trinding"
+                style={{ color: "inherit", textDecoration: "inherit" }}
+              >
+                Trinding
+              </NavLink>
+            </li>
+          </ul>
+          <ul>
+            <li>Action</li>
 
-        
-    </Route>
+            <li>Drama</li>
+            <li>Comidy</li>
+            <li>Crime</li>
+            <li>Romantic</li>
+          </ul>
+        </div>
+        <Switch>
+          <Container></Container>
 
-     
-    </Switch>
+          <Route exact path="/movies/">
+            <Container />
+          </Route>
 
-    {/* ? =========== side nav =========== */}
+        </Switch>
 
-    
-
-    </>
+        {/* ? =========== side nav =========== */}
+      </>
     </Router>
   );
 };
-
 
 export default App;
 

@@ -57,7 +57,7 @@ const Populer = () => {
     console.log(val);
   };
 
-  return <Movies movies={moveis} />;
+  return (<Movies movies={moveis} />)
 };
 
 export default Populer;

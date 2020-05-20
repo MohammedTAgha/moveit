@@ -17,7 +17,7 @@ const Movies = props => {
       {/*-------------------------  */}
 
       {props.movies.map(film => (
-        <Link to={'/deatelss/'+film.id} key={film.id} >
+        <Link to={'/details/'+film.id} key={film.id} >
           <Film movie={film}  />
         </Link>
       ))}
