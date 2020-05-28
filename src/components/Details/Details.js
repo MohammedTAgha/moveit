@@ -55,10 +55,18 @@ const Details = props => {
     <>
       <div className="header">
         <div className="background">
+
+          <div className="img">
+          <img
+             
+            src={"https://image.tmdb.org/t/p/w1280/" + details.backdrop_path}
+            alt="hellow"
+          />
+          </div>
           <div className="blur">
             <div className="info" id="short">
               <article>
-              <p>{details.title}</p>
+              <p title={details.title}>{details.title}</p>
               
               
               <span className="tag">{details.tagline}</span>
@@ -91,15 +99,27 @@ const Details = props => {
 
 
           </div>
-
-          <img
-            className="img"
-            src={"https://image.tmdb.org/t/p/w1280/" + details.backdrop_path}
-            alt="hellow"
-          />
         </div>
         <img className="poster"src={thumImg+details.poster_path}alt=""/>
+
+        
       </div>
+
+      {/* <div className='details-holder'>
+
+      <div className="overview">
+        <p>OVERVIEW</p>
+      </div>
+
+      <div className="overview-text">
+      "The near future, a time when both hope and hardships drive humanity to look to the stars and beyond. While a mysterious phenomenon menaces to destroy life on planet Earth, astronaut Roy McBride undertakes a mission across the immensity of space and its many perils to uncover the truth about a lost expedition that decades before boldly faced emptiness and silence in search of the unknown."
+      </div>
+      </div> */}
+
+  <div class="wrapper">
+    <div class="box a">A</div>
+    <div class="box b">B</div>
+  </div> 
       {/* <AwesomeComponent /> */}
     </>
   );
