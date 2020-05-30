@@ -1,125 +1,122 @@
-.header {
-  width: 100%;
-  height: 85vh;
+.headerImgContainer {
   margin-top: -80px;
-}
-.header .background {
-  position: relative;
-}
-.header .background .blur {
-  width: calc(100% - 50px);
-  /* margin-left: ; */
-  height: 150px;
-  right: 0;
-  background-color: rgb(138, 61, 61);
-  bottom: 0px;
-  position: absolute;
-  display: flex;
-
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-
-  background: transparent;
-  opacity: 1;
-  /* Note: currently only Safari supports backdrop-filter */
-  backdrop-filter: blur(50px);
-  --webkit-backdrop-filter: blur(50px);
-  background-color: rgba(255, 255, 255, 0.15);
-  /* (plus shape's fill blended on top as a separate layer with 69% opacity) */
-}
-.header .background .blur .info{
-    margin-right: 25px;
-}
-.header .background .blur .info article {
-  margin-left: 220px;
-}
-.header .background .blur .info p {
-  font-size: 48px;
-  max-height: 55px;
-  max-width: 450px;
+  height: 60vh;
   overflow: hidden;
-  letter-spacing: 0.06em;
-  text-align: left;
-  color: #fff;
+  min-width: 840px;
+}
+.info {
 }
 
-.header .background .blur .info .tag {
-  color: #fff;
-}
-.sep {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.vertical-line {
-  display: inline-block;
-
-  align-items: center;
-  /* border-left: 1px solid rgb(202, 14, 14); */
-  width: 2px;
-  height: 100px;
-  background-color: brown;
+.parent {
+  display: grid;
+  grid-template-columns: 50px 293px;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 
-.header .img {
-  width: 100%;
-   
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
+.div1 {
+  height: 300px;
+  grid-area: 1 / 2 / 2 / 3;
 }
-.header .poster {
+.div2 {
+  grid-area: 1 / 3 / 2 / 4;
+}
+
+.poster {
   z-index: 1000;
-  height: 277.69px;
-  width: 190px;
-  margin-left: 50px;
+  /* height: 277.69px; */
+  width: 100%;
+
   background-color: rgb(175, 31, 31);
-  transform: translateY(-75%);
+  transform: translateY(-40%);
   border-radius: 10px;
   opacity: 1;
-  border: 4px solid #fff;
+  border: 4px solid #ff4c2c75;
+}
+
+.info-holder {
+  padding-top: 10px;
+  padding: 20px;
+}
+
+.info-holder .info-title {
+  font-family: "Baloo Bhaina 2";
+  font-weight: normal;
+  font-size: 42px;
+
+  text-align: left;
+  color: #000;
+}
+
+.genr {
+  font-family: "Baloo Bhaina 2";
+  font-weight: normal;
+  text-decoration: underline;
+
+  text-align: left;
+  color: #000;
+}
+
+.info-rate {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+.info-rate p {
+  font-size: 44px;
+
+  text-align: left;
+  color: #000;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.zeft {
+  height: 100%;
+  position: relative;
+}
+.zeft span {
+  font-family: "Baloo Bhaina 2";
+  font-weight: normal;
+  margin-left: 20px;
+
+  color: #000;
+  opacity: 0.65;
+}
+
+.grid-container {
+  /* height: 250px; */
+  display: grid;
+  grid-template-columns:50px 1.1fr 1.1fr 1.2fr 20px 1.4fr ;
+  grid-template-rows: 2fr 0.1fr;
+  gap: 1px 1px;
+  grid-template-areas: "pading overview overview overview gap details ." ;
+}
+
+.overview {
+  grid-area: overview;
+  /* background-color: rgb(78, 57, 57); */
+}
+
+.details {
+  /* background-color: rgb(180, 22, 22); */
+
+  grid-area: details;
 }
 
 
-.extra-deatils  {
-    padding-left: 20px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-    
-
-}
-
-.extra-deatils main p{
-    color: #fff;
-    margin-top: 4px;
-}
-
-.details-holder{
-   
-  width: 100%;
-  
-  
-  margin-top: 200px;
-  padding-left: 40px;
-  font-size: 32px;
-}
-.details-holder .overview{
-  width: 80%;
- 
-
-
-}
-.details-holder .overview p{
+.sec-title{
   font-family: "Baloo Bhaina 2";
   font-weight: normal;
   font-size: 38px;
   letter-spacing: 0.04em;
   text-align: left;
-  color: #ff4d2c;
+  color: #000000;
 
 } 
 
-.details-holder .overview p::after{
+.sec-title::after{
   content: "";
   display: block;
   width: 55px;
@@ -133,34 +130,71 @@
 
 }
 
-
-.wrapper {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: 150px 100px 100px 150px ;
+.overview-text{
+  margin-top: -20px;
+  padding: 0;
   
-  background-color: #fff;
-  color: #444;
-}
-
-.box {
-  background-color: #444;
-  color: #fff;
-  border-radius: 5px;
-  padding: 20px;
-  font-size: 150%;
+  font-family: 'Roboto', sans-serif;
+ 
+font-weight: normal;
+font-size: 24px;
+letter-spacing: 0.0em;
+line-height: 33px;
+text-align: left;
+color: #000;
 
 }
 
-.box .box {
-  background-color: #ccc;
-  color: #444;
+.data ul{
+  font-family: "Baloo Bhaina 2";
+  margin-top: -20px;
+  font-size: 20px;
+  line-height: 30px;
+  list-style-type: none;
+}
+.data ul{
+  list-style-type: none;
+
 }
 
-.a {
-  grid-column: 1 / 4;
+/* .casts-slider{
+  width: 90%;
+  background-color: rgba(7, 10, 204, 0.288);
+}
+.cast{
+  
+  
+  background-color: rgb(252, 104, 104);
+  margin-left: 50px;
 }
 
-.b {
-  grid-column: 4 ;
+.slider-container{
+  background-color: rgb(161, 161, 161);
+  padding: 50px;
+  
+} */
+.casts{
+  width: 100%;
+  height: 180px;
+   
+}
+
+.cast{
+height: 180px;
+width: 180px;
+background-color: rgba(138, 127, 127, 0.493);
+border-radius: 5000px;
+}
+
+.person-img{
+  width: 180px;
+  height: 180px;
+  background-color: #ddd;
+   /* background-image: url('https://image.tmdb.org/t/p/w200//wxt0NX2tnbAQm0eqeN1l7cXTfGX.jpg'); */
+}
+.slider-container{
+  margin-top: 20px;
+    align-items: center;
+    width: 90%;
+    margin-left: 50px;
 }

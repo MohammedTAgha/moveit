@@ -51,7 +51,7 @@ const App = () => {
             </li>
             <li>
               <NavLink
-                to="toprate"
+                to="/toprate"
                 style={{ color: "inherit", textDecoration: "inherit" }}
               >
                 Top rated

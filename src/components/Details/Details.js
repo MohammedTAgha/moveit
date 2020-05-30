@@ -1,126 +1,195 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 import {
   LazyLoadImage,
   trackWindowScroll
 } from "react-lazy-load-image-component";
 
-import AwesomeComponent from "../Loading/Loading";
+import Movies from "../../movies";
+import { Casts } from "../";
+// import AwesomeComponent from "../Loading/Loading";
+// import GroupComponent from "../FilmDetails/GroupComponent";
 import bg from "../Img/5BwqwxMEjeFtdknRV792Svo0K1v.jpg";
 import poster from "../Img/xBHvZcjRiWyobQ9kxBhO6B2dtRI.jpg";
+import startIcon from "../Img/startIcon.svg";
 
 import { withRouter } from "react-router-dom";
 
 import "./Details.css";
 
-import { getMovieDetails, searchData } from "../../API";
+import { getMovieDetail, searchData } from "../../API";
 
 const Details = props => {
-
+  //read from url
   var movieId = props.match.params.id;
   const thumImg = "https://image.tmdb.org/t/p/w500/";
-  useEffect(() => {
+
+  useEffect(() => {                                             //? effect here
+    getRecommendations();
     getDetails();
+
+    // get_imdb_data();
   }, []);
+  // useEffect(() => {                                             //? effect here
+  //   getRecommendations();
+  //   // get_imdb_data();
+  // }, []);
+
+  const get_imdb_data = () => {
+    fetch("https://imdb8.p.rapidapi.com/title/get-top-crew?tconst=tt0944947", {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "imdb8.p.rapidapi.com",
+        "x-rapidapi-key": "cefcc7bd02msh98ab52c170f7996p117befjsn06f91d1f42df"
+      }
+    })
+      .then(response => {
+        console.log("🎈🎈🎈🎈");
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   const [details, setDetails] = useState({});
-  const genres=details.genres
+  const [recommendations, setRecommendations] = useState({});
+
+  const genres = details.genres;
 
   const getDetails = async () => {
     //page in parametars  🏁🏁 git and sit top rated movies
-    const data = await getMovieDetails(movieId);
+    const data = await getMovieDetail("", movieId);
     console.log(data);
     if (data) {
       setDetails(data.data);
-      console.log("♦♦♦🎵🎵" + JSON.stringify(details));
+
       return data;
     }
   };
 
-  console.log("📊📊" + JSON.stringify(details));
+  const getRecommendations = async () => {
+    //page in parametars  🏁🏁 git and sit top rated movies
+    const data = await getMovieDetail("recommendations", movieId);
+    console.log(data);
+    if (data) {
+      console.log("recommendations 🔴🔴🔴");
+      console.log(data.data);
+      setRecommendations(data.data);
+      console.log("recommendations 🟢🟢🟢");
+      console.log(recommendations);
+      return data;
+    }
+  };
+
+  console.log(details);
+  var budget = details.budget;
+  if (details.budget == 0) {
+    budget = false;
+  }
+
+  console.log("💰", "budget", budget);
 
   let itemsToRender;
   if (genres) {
     itemsToRender = genres.map(gener => {
-      return <p >{gener}</p>;
+      return <p>{gener}</p>;
     });
   } else {
     itemsToRender = "Loading...";
   }
 
-  const gen = ()=>{
+  const gen = () => {};
 
-  }
- 
   return (
     <>
-      <div className="header">
-        <div className="background">
-
-          <div className="img">
-          <img
-             
+      <header>
+        <div className="headerImgContainer">
+          <LazyLoadImage
+            alt={details.title}
+            width={"100%"}
             src={"https://image.tmdb.org/t/p/w1280/" + details.backdrop_path}
-            alt="hellow"
+            effect="blur" // use normal <img> attributes as props
           />
-          </div>
-          <div className="blur">
-            <div className="info" id="short">
-              <article>
-              <p title={details.title}>{details.title}</p>
-              
-              
-              <span className="tag">{details.tagline}</span>
-              
-              </article>
-              
-            </div>
-            
-            <div className="sep">
-            <div class="vertical-line"></div>
-            </div>
-            <div className="extra-deatils">
-              <main>
-                  <p>
-                  rate : {details.vote_average}.
-                  </p>
-                  <p>
+        </div>
+        {/* {details?<p>loaded</p>:<p>loadeding....loadeding....loadeding....loadeding....loadeding....loadeding....loadeding....loadeding....loadeding....loadeding....loadeding....loadeding....loadeding....loadeding....loadeding....loadeding....loadeding....loadeding....</p>} */}
 
-                  
-                  { genres && genres.map((genr)=>(<span>{genr.name} | </span>))}
-                  </p>
-                  <p>
-                  {details.original_language}.
-                  </p>
-                  <p>
-                  {details.runtime} MIN.
-                  </p>
-                </main>
+        <div className="info">
+          <div className="parent">
+            <div className="box div1 ">
+              <img
+                className="poster"
+                src={thumImg + details.poster_path}
+                alt=""
+              />
             </div>
-
-
+            <div class="box div2">
+              <main className="info-holder">
+                <span className="info-title">{details.title}</span>
+                <div className="info-short">
+                  <span>{details.runtime} min |</span>
+                  <span>
+                    {genres &&
+                      genres.map(genr => (
+                        <span>
+                          &nbsp;
+                          <Link to={`/genres/${genr.id}`}>
+                            <span className="genr">{genr.name}</span>
+                          </Link>
+                          &nbsp;,
+                        </span>
+                      ))}
+                  </span>
+                  <div className="info-tagline">{details.tagline}</div>
+                  <div className="info-rate">
+                    <img className="ic-star" src={startIcon} alt="rate" />
+                    <p>{details.vote_average} </p>
+                    <div className="zeft">
+                      <span>{details.vote_count} voit count</span>
+                    </div>
+                  </div>
+                </div>
+              </main>
+            </div>
           </div>
         </div>
-        <img className="poster"src={thumImg+details.poster_path}alt=""/>
+        {/* <img src={"https://image.tmdb.org/t/p/w1280/" + details.backdrop_path} alt="" className="bg"/> */}
+      </header>
 
-        
-      </div>
+      <section>
+        <div className="grid-container">
+          <div className="overview">
+            <div className="sec-title">Overview</div>
+            <div className="overview-text">{details.overview}</div>
+          </div>
+          <div className="details">
+            <dev className="sec-title">Details</dev>
+            <div className="data">
+              <ul>
+                <li>RELESE DATE : {details.release_date}</li>
+                <li>LANGUAGE : {details.original_language}</li>
+                <li>runtime : {details.runtime}</li>
+                <li>popularity : {details.popularity}</li>
+                <li>voit rate : {details.vote_average}</li>
+                {budget && <li> bodget : {budget}</li>}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="slider-container">
+        <div className="slider-holder">
+          <div className="sec-title">Casts</div>
+          <Casts id={movieId} />
+        </div>
+      </section>
 
-      {/* <div className='details-holder'>
+      <section className="slider-container">
+        <div className="sec-title">Recommendations</div>
 
-      <div className="overview">
-        <p>OVERVIEW</p>
-      </div>
-
-      <div className="overview-text">
-      "The near future, a time when both hope and hardships drive humanity to look to the stars and beyond. While a mysterious phenomenon menaces to destroy life on planet Earth, astronaut Roy McBride undertakes a mission across the immensity of space and its many perils to uncover the truth about a lost expedition that decades before boldly faced emptiness and silence in search of the unknown."
-      </div>
-      </div> */}
-
-  <div class="wrapper">
-    <div class="box a">A</div>
-    <div class="box b">B</div>
-  </div> 
-      {/* <AwesomeComponent /> */}
+        {/* <Movies movies={recommendations} /> */}
+      </section>
     </>
   );
 };

@@ -668,3 +668,254 @@ const TopRate = () => {
 };
 
 export default TopRate;
+
+
+
+
+
+/////old deatails
+
+
+<>
+<div className="header">
+  <div className="background">
+
+    <div className="img">
+    <img
+       
+      src={"https://image.tmdb.org/t/p/w1280/" + details.backdrop_path}
+      alt="hellow"
+    />
+    </div>
+    <div className="blur">
+      <div className="info" id="short">
+        <article>
+        <p title={details.title}>{details.title}</p>
+        
+        
+        <span className="tag">{details.tagline}</span>
+        
+        </article>
+        
+      </div>
+      
+      <div className="sep">
+      <div class="vertical-line"></div>
+      </div>
+      <div className="extra-deatils">
+        <main>
+            <p>
+            rate : {details.vote_average}.
+            </p>
+            <p>
+
+            
+            { genres && genres.map((genr)=>(<span>{genr.name} | </span>))}
+            </p>
+            <p>
+            {details.original_language}.
+            </p>
+            <p>
+            {details.runtime} MIN.
+            </p>
+          </main>
+      </div>
+
+
+    </div>
+  </div>
+  <img className="poster"src={thumImg+details.poster_path}alt=""/>
+
+  
+</div>
+
+{/* <div className='details-holder'>
+
+<div className="overview">
+  <p>OVERVIEW</p>
+</div>
+
+<div className="overview-text">
+"The near future, a time when both hope and hardships drive humanity to look to the stars and beyond. While a mysterious phenomenon menaces to destroy life on planet Earth, astronaut Roy McBride undertakes a mission across the immensity of space and its many perils to uncover the truth about a lost expedition that decades before boldly faced emptiness and silence in search of the unknown."
+</div>
+</div> */}
+
+<div class="wrapper">
+<div class="box a">A</div>
+<div class="box b">B</div>
+</div> 
+{/* <AwesomeComponent /> */}
+
+</>
+
+
+
+// style
+
+
+.header {
+  width: 100%;
+  height: 85vh;
+  margin-top: -80px;
+}
+.header .background {
+  position: relative;
+}
+.header .background .blur {
+  width: calc(100% - 50px);
+  /* margin-left: ; */
+  height: 150px;
+  right: 0;
+  background-color: rgb(138, 61, 61);
+  bottom: 0px;
+  position: absolute;
+  display: flex;
+
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+
+  background: transparent;
+  opacity: 1;
+  /* Note: currently only Safari supports backdrop-filter */
+  backdrop-filter: blur(50px);
+  --webkit-backdrop-filter: blur(50px);
+  background-color: rgba(255, 255, 255, 0.15);
+  /* (plus shape's fill blended on top as a separate layer with 69% opacity) */
+}
+.header .background .blur .info{
+    margin-right: 25px;
+}
+.header .background .blur .info article {
+  margin-left: 220px;
+}
+.header .background .blur .info p {
+  font-size: 48px;
+  max-height: 55px;
+  max-width: 450px;
+  overflow: hidden;
+  letter-spacing: 0.06em;
+  text-align: left;
+  color: #fff;
+}
+
+.header .background .blur .info .tag {
+  color: #fff;
+}
+.sep {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.vertical-line {
+  display: inline-block;
+
+  align-items: center;
+  /* border-left: 1px solid rgb(202, 14, 14); */
+  width: 2px;
+  height: 100px;
+  background-color: brown;
+}
+
+.header .img {
+  width: 100%;
+   
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+ .poster {
+  z-index: 1000;
+  height: 277.69px;
+  width: 190px;
+  margin-left: 50px;
+  background-color: rgb(175, 31, 31);
+  transform: translateY(-75%);
+  border-radius: 10px;
+  opacity: 1;
+  border: 4px solid #fff;
+}
+
+
+.extra-deatils  {
+    padding-left: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    
+
+}
+
+.extra-deatils main p{
+    color: #fff;
+    margin-top: 4px;
+}
+
+.details-holder{
+   
+  width: 100%;
+  
+  
+  margin-top: 200px;
+  padding-left: 40px;
+  font-size: 32px;
+}
+.details-holder .overview{
+  width: 80%;
+ 
+
+
+}
+.details-holder .overview p{
+  font-family: "Baloo Bhaina 2";
+  font-weight: normal;
+  font-size: 38px;
+  letter-spacing: 0.04em;
+  text-align: left;
+  color: #ff4d2c;
+
+} 
+
+.details-holder .overview p::after{
+  content: "";
+  display: block;
+  width: 55px;
+  height: 5px;
+  background: transparent;
+  background-color:  #ff674b;
+  margin-top: -15px;
+  margin-bottom: 50px;
+  padding: 0;
+  border-radius: 5px;
+
+}
+
+
+.wrapper {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 150px 100px 100px 150px ;
+  
+  background-color: #fff;
+  color: #444;
+}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+
+}
+
+.box .box {
+  background-color: #ccc;
+  color: #444;
+}
+
+.a {
+  grid-column: 1 / 4;
+}
+
+.b {
+  grid-column: 4 ;
+}

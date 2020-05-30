@@ -77,11 +77,14 @@ export const trending = async ( )=>{
 }
 
 
-export const getMovieDetails = async ( id )=>{
+
+export const getMovieDetail = async ( taxi , id )=>{
     console.log('id = '+id)
     let url =
-    `https://api.themoviedb.org/3/movie/${id}?api_key=${myKey}`
+    `https://api.themoviedb.org/3/movie/${id}/${taxi}?api_key=${myKey}`
    // https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1
+   if(!taxi){url =`https://api.themoviedb.org/3/movie/${id}?api_key=${myKey}`
+    }else if(taxi=='recommendations'){url=`https://api.themoviedb.org/3/movie/${id}/${taxi}?api_key=${myKey}&language=en-US&page=1`}
     try {
         const data = await axios.get(url);
         return data;
@@ -91,5 +94,4 @@ export const getMovieDetails = async ( id )=>{
     }
 
 }
-
 
