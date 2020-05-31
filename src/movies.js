@@ -1,14 +1,36 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Route, Switch, NavLink, Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
+
+import { getMovies } from "./API";
+
 
 
 import Film from "../src/components/Film";
 const Movies = props => {
+  // useEffect(() => {
+  //   console.log("props is -->" + props);
+  // }, []);
+  const [moveis, SetMoveis] = useState([]);
+
   useEffect(() => {
-    console.log("props is -->" + props);
+    //if(props.whatToRender=='popular'){getPopular('popular');}
+    getPopular(props.whatToRender);
   }, []);
+ 
+
+  const getPopular = async (taxi) => {
+    //page in parametars  🏁🏁 git and sit top rated movies
+    const data = await getMovies(taxi,1);
+     
+    if(data){
+      SetMoveis(data.data.results);
+      console.log("🔥" + moveis);
+    }
+   
+    return data;
+  };
 
   return (
     <Router>
@@ -16,7 +38,7 @@ const Movies = props => {
     <div className="film-holder">
       {/*-------------------------  */}
 
-      {props.movies.map(film => (
+      {moveis.map(film => (
         <Link to={'/details/'+film.id} key={film.id} >
           <Film movie={film}  />
         </Link>

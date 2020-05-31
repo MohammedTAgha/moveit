@@ -29,6 +29,24 @@ export const searchData = async ( keyward )=>{
     }
     
 }
+
+export const getMovies = async (taxi, page )=>{
+    
+    let url =
+    "https://api.themoviedb.org/3/movie/"+taxi+"?api_key="+myKey+"&language=en-US&page="+page
+    if(taxi==''){url="https://api.themoviedb.org/3/movie/popular?api_key="+myKey+"&language=en-US&page=1"}
+    if(taxi=='trinding'){url="https://api.themoviedb.org/3/trending/movie/week?api_key="+myKey}
+    try {
+        const data = await axios.get(url);
+        console.log( ' 🚩🚩🚩 start data')
+
+        return data;
+    } catch (error) {
+        console.log('eroor');
+        return null;
+    }
+}
+
 export const topRated = async ( page )=>{
     let url =
     "https://api.themoviedb.org/3/movie/top_rated?api_key="+myKey+"&language=en-US&page="+page

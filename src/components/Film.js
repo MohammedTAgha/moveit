@@ -12,7 +12,7 @@ const Film = props => {
   // console.log('📃📃' + props.movie )
   console.log("🔑" + props.id);
 
-  let films = props.movie;
+  let films = props.movie; 
 
   const thumImg = "https://image.tmdb.org/t/p/w500/";
   var release = films.release_date.slice(0, 4);

@@ -193,8 +193,8 @@ border-radius: 5000px;
    /* background-image: url('https://image.tmdb.org/t/p/w200//wxt0NX2tnbAQm0eqeN1l7cXTfGX.jpg'); */
 }
 .slider-container{
-  margin-top: 20px;
-    align-items: center;
-    width: 90%;
-    margin-left: 50px;
+     margin-top: 20px;
+     align-items: center;
+      width: 90%;
+     margin-left: 50px;
 }

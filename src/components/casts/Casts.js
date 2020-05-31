@@ -88,9 +88,6 @@ function Casts (props) {
       backgroundColor:'#f00',
     }
     const PersonCast = styled.div`
-        
-         
-         
         border-radius: 5000px;
         overflow: hidden; 
 

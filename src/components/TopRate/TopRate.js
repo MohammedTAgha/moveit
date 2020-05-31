@@ -61,7 +61,7 @@ const TopRate = () => {
   // getTopRated();
 
   return (
-    <Movies movies={moveis} />
+    <Movies  whatToRender={'top_rated'} />
     // <Container filmData={moveis}  />
   );
 };

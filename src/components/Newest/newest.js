@@ -16,9 +16,7 @@ const Populer = () => {
   const [moveis, SetMoveis] = useState([]);   // 🎬 movie state  
   const [searchInput, SetSearchInput] = useState("");  // 🔍 search input state
 
-  useEffect(() => {
-    getTrinding();
-  }, []);
+ 
   const getRequist = async s => {
     if (searchInput != "") {
       const data = await searchData(searchInput);
@@ -30,14 +28,7 @@ const Populer = () => {
     }
   };
 
-  const getTrinding = async () => {   //page in parametars  🏁🏁 git and sit top rated movies
-    const data = await trending();
-    console.log(data.data);
-    SetMoveis(data.data.results)
-    console.log('🔥'+moveis)
-    return data;
-  };
-
+ 
 
   
 
@@ -55,7 +46,7 @@ const Populer = () => {
     console.log('🐒🐒🐒🐒')
   }
   return (
-     <Movies movies={moveis}  /> 
+     <Movies  whatToRender={'trinding'}  /> 
     
   );
 };

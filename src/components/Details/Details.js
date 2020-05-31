@@ -8,6 +8,7 @@ import {
 
 import Movies from "../../movies";
 import { Casts } from "../";
+import Recommindations  from "../../Elements/Recommend/Recommindations";
 // import AwesomeComponent from "../Loading/Loading";
 // import GroupComponent from "../FilmDetails/GroupComponent";
 import bg from "../Img/5BwqwxMEjeFtdknRV792Svo0K1v.jpg";
@@ -55,6 +56,7 @@ const Details = props => {
 
   const [details, setDetails] = useState({});
   const [recommendations, setRecommendations] = useState({});
+  const [loaging, setLoading] = useState(true);
 
   const genres = details.genres;
 
@@ -63,8 +65,9 @@ const Details = props => {
     const data = await getMovieDetail("", movieId);
     console.log(data);
     if (data) {
+      
       setDetails(data.data);
-
+      setLoading(true)
       return data;
     }
   };
@@ -79,7 +82,7 @@ const Details = props => {
       setRecommendations(data.data);
       console.log("recommendations 🟢🟢🟢");
       console.log(recommendations);
-      return data;
+      
     }
   };
 
@@ -104,6 +107,10 @@ const Details = props => {
 
   return (
     <>
+    {
+      loaging?
+      (
+<div>
       <header>
         <div className="headerImgContainer">
           <LazyLoadImage
@@ -184,12 +191,15 @@ const Details = props => {
           <Casts id={movieId} />
         </div>
       </section>
-
+      <Recommindations />                 
       <section className="slider-container">
-        <div className="sec-title">Recommendations</div>
 
         {/* <Movies movies={recommendations} /> */}
       </section>
+    </div>
+      ):(<h1>loading...</h1>)
+    }
+    
     </>
   );
 };
