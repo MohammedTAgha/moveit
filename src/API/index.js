@@ -54,7 +54,6 @@ export const topRated = async ( page )=>{
     try {
         const data = await axios.get(url);
         console.log( ' 🚩🚩🚩 start data')
-
         return data;
     } catch (error) {
         console.log('eroor');

@@ -20,9 +20,9 @@ const Movies = props => {
   }, []);
  
 
-  const getPopular = async (taxi) => {
+  const getPopular = async (dist) => {
     //page in parametars  🏁🏁 git and sit top rated movies
-    const data = await getMovies(taxi,1);
+    const data = await getMovies(dist,1);
      
     if(data){
       SetMoveis(data.data.results);
